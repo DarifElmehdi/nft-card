@@ -83,6 +83,14 @@ body {
   justify-content: space-evenly;
   flex-direction: column;
 }
+body .attribution {
+  font-size: 1rem;
+  text-align: center;
+  color: hsl(0deg, 0%, 100%);
+}
+body .attribution a {
+  color: hsl(228deg, 45%, 60%);
+}
 
 .nft-card {
   width: min(80%, 20rem);

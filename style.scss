@@ -22,6 +22,14 @@ body {
     background-color: $main-darkblue;
     @include flex(space-evenly);
     flex-direction: column;
+    .attribution {
+        font-size: 1rem;
+        text-align: center;
+        color: $White;
+    }
+    .attribution a {
+        color: hsl(228, 45%, 60%);
+    }
 }
 
 .nft-card {
