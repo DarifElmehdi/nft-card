@@ -1,0 +1,129 @@
+@use "reset";
+@use "font";
+
+@mixin flex($space: center) {
+    display: flex;
+    align-items: center;
+    justify-content: $space;
+}
+
+$mobile: 375px;
+$desktop: 1440px;
+
+$softblue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+
+$main-darkblue: hsl(217, 54%, 11%);
+$card-darkblue: hsl(216, 50%, 16%);
+$line-darkblue: hsl(215, 32%, 27%);
+$White: hsl(0, 0%, 100%);
+
+body {
+    background-color: $main-darkblue;
+    @include flex(space-evenly);
+    flex-direction: column;
+}
+
+.nft-card {
+    width: min(80%, 20rem);
+    padding: 1.5rem;
+    background-color: $card-darkblue;
+    color: $White;
+    border-radius: 1rem;
+    .card-img {
+        position: relative;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        cursor: pointer;
+        .view {
+            display: none;
+            img {
+                transform: scale(0.9);
+            }
+        }
+        &:hover {
+            .view {
+                display: block;
+                position: absolute;
+                @include flex();
+                width: 100%;
+                height: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba($cyan, $alpha: 0.5);
+            }
+        }
+    }
+    .title {
+        font-size: 1.4rem;
+        font-family: Outfit;
+        margin: 1rem 0;
+        font-weight: 600;
+        cursor: pointer;
+        &:hover {
+            color: $cyan;
+        }
+    }
+    p {
+        font-family: Outfit;
+        font-weight: 300;
+        color: $softblue;
+    }
+    .info {
+        @include flex(space-between);
+        margin: 1rem 0;
+        img {
+            margin-right: 0.4rem;
+        }
+        .price {
+            @include flex();
+
+            h1 {
+                font-family: Outfit;
+                font-weight: 400;
+                font-size: 1rem;
+                color: $cyan;
+            }
+        }
+        .date {
+            @include flex();
+            h1 {
+                font-family: Outfit;
+                font-weight: 400;
+                font-size: 1rem;
+                color: $softblue;
+            }
+        }
+    }
+    hr {
+        height: 1px;
+        background-color: $line-darkblue;
+        border: 0;
+        margin: 1rem 0;
+    }
+    .owner {
+        @include flex();
+        justify-content: start;
+        img {
+            height: 2rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 1px solid $White;
+            margin-right: 1rem;
+        }
+        h1 {
+            font-family: Outfit;
+            font-size: 1rem;
+            font-weight: 300;
+            color: $softblue;
+            span {
+                color: $White;
+                cursor: pointer;
+                &:hover {
+                    color: $cyan;
+                }
+            }
+        }
+    }
+}
